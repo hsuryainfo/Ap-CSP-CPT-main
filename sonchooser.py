@@ -32,6 +32,7 @@ def music_picker(genre, mood, tempo):
         [
             "Can't Stop the Feeling! by Justin Timberlake",
             "Old Town Road by Lil Nas X ft. Billy Ray Cyrus",
+            "Let her Go by Passenger",
         ],
         [
             "See You Again by Wiz Khalifa ft. Charlie Puth",
@@ -68,12 +69,12 @@ def music_picker(genre, mood, tempo):
         )
 
 
-input1 = input("Choose a tempo: rock, hiphop, pop ")
+input1 = input("Choose a genre: rock, hiphop, pop ")
 
 if input1.lower() == "rock":
     genre = "rock"
 if input1.lower() == "hiphop":
-    genre = "hiphop"
+    genre = "hip-hop"
 if input1.lower() == "pop":
     genre = "pop"
 
@@ -91,7 +92,7 @@ if input3.lower() == "fast":
 if input3.lower() == "medium":
     tempo = "medium"
 if input3.lower() == "slow":
-    tempo = "medium"
+    tempo = "slow"
 
 
 recommended_song = music_picker(genre, mood, tempo)
