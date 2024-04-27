@@ -6,7 +6,7 @@ def music_picker(genre, mood, tempo):
 
     rock_songs = [
         [
-            "Don't Stop Believin' by Journey",
+            "rock song 1",
             "Livin' On A Prayer by Bon Jovi",
             "Sweet Child O' Mine by Guns N' Roses",
         ],
@@ -41,7 +41,6 @@ def music_picker(genre, mood, tempo):
         ],
     ]
 
-    # Retrieve song recommendation based on user preferences
     if genre in genres and mood in moods and tempo in tempos:
         if genre == "rock":
             songs = rock_songs
@@ -69,7 +68,16 @@ def music_picker(genre, mood, tempo):
         )
 
 
+genres = ["rock", "pop", "hip-hop"]
+moods = ["happy", "sad"]
+tempos = ["fast", "medium", "slow"]
+
+
 input1 = input("Choose a genre: rock, hiphop, pop ")
+
+while input1 not in genres:
+    print("This is not an option. Please try again. ")
+    input1 = input("Choose a genre: rock, hiphop, pop ")
 
 if input1.lower() == "rock":
     genre = "rock"
@@ -80,12 +88,20 @@ if input1.lower() == "pop":
 
 input2 = input("Choose a mood: happy, sad, ")
 
+while input2 not in moods:
+    print("This is not an option. Please try again. ")
+    input2 = input("Choose a mood: happy or sad ")
+
 if input2.lower() == "happy":
     mood = "happy"
 if input2.lower() == "sad":
     mood = "sad"
 
 input3 = input("Choose a tempo: fast, medium, or slow ")
+
+while input3 not in tempos:
+    print("This is not an option. Please try again")
+    input3 = input("Choose a tempo: fast, medium, or slow ")
 
 if input3.lower() == "fast":
     tempo = "fast"
