@@ -1,13 +1,9 @@
-# here we define our main function - the music picker function
 def music_picker(genre, mood, tempo):
 
-    # these are the genres, moods, and tempos that are being used in a list
     genres = ["rock", "pop", "hip-hop"]
     moods = ["happy", "sad"]
     tempos = ["fast", "medium", "slow"]
 
-    # we organize our lists in a way that will incorporate calling indexes for returning our final song
-    # i have put "rock song 1", "pop song 2" and so forth, but it can all be replaced with real songs
     rock_songs = [
         [
             "rock song 1",
@@ -45,8 +41,21 @@ def music_picker(genre, mood, tempo):
         ],
     ]
 
-    # here we make sure that the inputted genre, mood, and tempo, is in the correct lists
-    while genre in genres and mood in moods and tempo in tempos:
+    while True:
+        if genre not in genres:
+            print("Invalid genre. Please choose from: rock, hiphop, or pop")
+            genre = input("Choose a genre: ")
+        elif mood not in moods:
+            print("Invalid mood. Please choose from: happy or sad")
+            mood = input("Choose a mood: ")
+        elif tempo not in tempos:
+            print("Invalid tempo. Please choose from: fast, medium, slow")
+            tempo = input("Choose a tempo: ")
+        else:
+            break
+
+    if genre in genres and mood in moods and tempo in tempos:
+
         if genre == "rock":
             final_song = rock_songs
         elif genre == "pop":
@@ -54,7 +63,6 @@ def music_picker(genre, mood, tempo):
         elif genre == "hip-hop":
             final_song = hip_hop_songs
 
-        # here we assign indexed to inputted values for tempos and moods
         if tempo == "fast":
             tempo_ind = 0
         elif tempo == "medium":
@@ -66,58 +74,43 @@ def music_picker(genre, mood, tempo):
             mood_ind = 0
         else:
             mood_ind = 1
-
-        # finally, we are returning a song, based on the indexes
         return final_song[mood_ind][tempo_ind]
 
 
-# defined lists again
 genres = ["rock", "pop", "hip-hop"]
 moods = ["happy", "sad"]
 tempos = ["fast", "medium", "slow"]
 
-
 input1 = input("Choose a genre: rock, hiphop, pop ")
+genre = ""
 
-# the purpose of this while loop is to make sure the user's inputs fall in the right lists
-# it will prompt you infinitely until a correct input is provided
-while input1 not in genres:
-    print("This is not an option. Please try again. ")
-    input1 = input("Choose a genre: rock, hiphop, pop ")
 
 if input1.lower() == "rock":
     genre = "rock"
-if input1.lower() == "hiphop":
+elif input1.lower() == "hiphop":
     genre = "hip-hop"
-if input1.lower() == "pop":
+elif input1.lower() == "pop":
     genre = "pop"
 
 input2 = input("Choose a mood: happy, sad, ")
-
-# while loop for moods
-while input2 not in moods:
-    print("This is not an option. Please try again. ")
-    input2 = input("Choose a mood: happy or sad ")
+mood = ""
 
 if input2.lower() == "happy":
     mood = "happy"
-if input2.lower() == "sad":
+elif input2.lower() == "sad":
     mood = "sad"
 
 input3 = input("Choose a tempo: fast, medium, or slow ")
-
-# while loops for tempos
-while input3 not in tempos:
-    print("This is not an option. Please try again")
-    input3 = input("Choose a tempo: fast, medium, or slow ")
+tempo = ""
 
 if input3.lower() == "fast":
     tempo = "fast"
-if input3.lower() == "medium":
+elif input3.lower() == "medium":
     tempo = "medium"
-if input3.lower() == "slow":
+elif input3.lower() == "slow":
     tempo = "slow"
 
-# Conclusively, we use our main function, to give out a recommended song.
-recommended_song = music_picker(genre, mood, tempo)
-print("Recommended song:", recommended_song)
+
+if __name__ == "__main__":
+    recommended_song = music_picker(genre, mood, tempo)
+    print("Recommended song:", recommended_song)
