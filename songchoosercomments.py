@@ -45,22 +45,8 @@ def music_picker(genre, mood, tempo):
         ],
     ]
 
-    while True:
-        if input1 not in genres:
-            print("Invalid genre. Please choose from:", genres)
-            input1 = input("Choose a genre: ").lower()
-        elif input2 not in moods:
-            print("Invalid mood. Please choose from:", moods)
-            input2 = input("Choose a mood: ").lower()
-        elif tempo not in tempos:
-            print("Invalid tempo. Please choose from:", tempos)
-            input3 = input("Choose a tempo: ").lower()
-        else:
-            break  # Break the loop if all inputs are valid
-
     # here we make sure that the inputted genre, mood, and tempo, is in the correct lists
-    if genre in genres and mood in moods and tempo in tempos:
-
+    while genre in genres and mood in moods and tempo in tempos:
         if genre == "rock":
             final_song = rock_songs
         elif genre == "pop":
@@ -83,8 +69,6 @@ def music_picker(genre, mood, tempo):
 
         # finally, we are returning a song, based on the indexes
         return final_song[mood_ind][tempo_ind]
-    else:
-        print("These are invalid choices. Try again.")
 
 
 # defined lists again
@@ -97,9 +81,9 @@ input1 = input("Choose a genre: rock, hiphop, pop ")
 
 # the purpose of this while loop is to make sure the user's inputs fall in the right lists
 # it will prompt you infinitely until a correct input is provided
-# while input1 not in genres:
-# print("This is not an option. Please try again. ")
-# input1 = input("Choose a genre: rock, hiphop, pop ")
+while input1 not in genres:
+    print("This is not an option. Please try again. ")
+    input1 = input("Choose a genre: rock, hiphop, pop ")
 
 if input1.lower() == "rock":
     genre = "rock"
@@ -111,9 +95,9 @@ if input1.lower() == "pop":
 input2 = input("Choose a mood: happy, sad, ")
 
 # while loop for moods
-# while input2 not in moods:
-# print("This is not an option. Please try again. ")
-# input2 = input("Choose a mood: happy or sad ")
+while input2 not in moods:
+    print("This is not an option. Please try again. ")
+    input2 = input("Choose a mood: happy or sad ")
 
 if input2.lower() == "happy":
     mood = "happy"
@@ -123,9 +107,9 @@ if input2.lower() == "sad":
 input3 = input("Choose a tempo: fast, medium, or slow ")
 
 # while loops for tempos
-# while input3 not in tempos:
-# print("This is not an option. Please try again")
-# input3 = input("Choose a tempo: fast, medium, or slow ")
+while input3 not in tempos:
+    print("This is not an option. Please try again")
+    input3 = input("Choose a tempo: fast, medium, or slow ")
 
 if input3.lower() == "fast":
     tempo = "fast"

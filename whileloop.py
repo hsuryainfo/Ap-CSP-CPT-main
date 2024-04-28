@@ -1,4 +1,3 @@
-# here we define our main function - the music picker function
 def music_picker(genre, mood, tempo):
 
     # these are the genres, moods, and tempos that are being used in a list
@@ -45,16 +44,17 @@ def music_picker(genre, mood, tempo):
         ],
     ]
 
+    # Input validation loop
     while True:
-        if input1 not in genres:
+        if genre not in genres:
             print("Invalid genre. Please choose from:", genres)
-            input1 = input("Choose a genre: ").lower()
-        elif input2 not in moods:
+            genre = input("Choose a genre: ").lower()
+        elif mood not in moods:
             print("Invalid mood. Please choose from:", moods)
-            input2 = input("Choose a mood: ").lower()
+            mood = input("Choose a mood: ").lower()
         elif tempo not in tempos:
             print("Invalid tempo. Please choose from:", tempos)
-            input3 = input("Choose a tempo: ").lower()
+            tempo = input("Choose a tempo: ").lower()
         else:
             break  # Break the loop if all inputs are valid
 
@@ -92,46 +92,30 @@ genres = ["rock", "pop", "hip-hop"]
 moods = ["happy", "sad"]
 tempos = ["fast", "medium", "slow"]
 
-
 input1 = input("Choose a genre: rock, hiphop, pop ")
 
-# the purpose of this while loop is to make sure the user's inputs fall in the right lists
-# it will prompt you infinitely until a correct input is provided
-# while input1 not in genres:
-# print("This is not an option. Please try again. ")
-# input1 = input("Choose a genre: rock, hiphop, pop ")
-
+# Assign input variables
 if input1.lower() == "rock":
     genre = "rock"
-if input1.lower() == "hiphop":
+elif input1.lower() == "hiphop":
     genre = "hip-hop"
-if input1.lower() == "pop":
+elif input1.lower() == "pop":
     genre = "pop"
 
 input2 = input("Choose a mood: happy, sad, ")
 
-# while loop for moods
-# while input2 not in moods:
-# print("This is not an option. Please try again. ")
-# input2 = input("Choose a mood: happy or sad ")
-
 if input2.lower() == "happy":
     mood = "happy"
-if input2.lower() == "sad":
+elif input2.lower() == "sad":
     mood = "sad"
 
 input3 = input("Choose a tempo: fast, medium, or slow ")
 
-# while loops for tempos
-# while input3 not in tempos:
-# print("This is not an option. Please try again")
-# input3 = input("Choose a tempo: fast, medium, or slow ")
-
 if input3.lower() == "fast":
     tempo = "fast"
-if input3.lower() == "medium":
+elif input3.lower() == "medium":
     tempo = "medium"
-if input3.lower() == "slow":
+elif input3.lower() == "slow":
     tempo = "slow"
 
 # Conclusively, we use our main function, to give out a recommended song.
